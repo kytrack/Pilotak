@@ -21,6 +21,13 @@ namespace Pilotak
             this.rajtszam = rajtszam;
         }
 
+        public PilotaclassRajtszamnelkuli(string nev, string szuletesidatum, string nemzetiseg)
+        {
+            this.nev = nev;
+            this.szuletesidatum = szuletesidatum;
+            this.nemzetiseg = nemzetiseg;
+        }
+
         public string Nev { get => nev;}
         public string Szuletesidatum { get => szuletesidatum;}
         public string Nemzetiseg { get => nemzetiseg;}
