@@ -10,7 +10,7 @@ while (!sr.EndOfStream)
     string[] adatok = sr.ReadLine().Split(";");
     if (adatok[3]=="")
     {
-        pilotak.Add(new Pilotaclass(adatok[0], adatok[1], adatok[2], -1));
+        pilotak.Add(new Pilotaclass(adatok[0], adatok[1], adatok[2]));
     }
     else
     {
@@ -34,9 +34,18 @@ foreach (var pilota in pilotak)
     }
 }
 
+Console.WriteLine($"6.feladat: {pilotak.OrderBy(p => p.Rajtszam).First().Nemzetiseg}");
 
 
-Console.WriteLine($"6.feladat: {pilotak.Last().Nev}");
+int[] tobbszorszereplo = pilotak.GroupBy(p => p.Rajtszam).Where(p => p.Count() > 1).Select(p => p.Key).ToArray();
+Console.Write($"7.feladat: ");
+foreach (var item in tobbszorszereplo)
+{
+    if (item != int.MaxValue)
+    {
+        Console.Write($"{item},");
+    } 
+}
 
 
 
